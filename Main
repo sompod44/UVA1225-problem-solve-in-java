@@ -1,0 +1,47 @@
+
+/**
+ *
+ * @author Sompod_Programmer
+ */
+class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        int value = input.nextInt();
+        int[][] storenumber = new int[value][10];
+        int counter = 0;
+        for(int i = 0; i < value ; i++){
+            int data = input.nextInt();
+            String str = "";
+            for(int j = 1; j<=data; j++){
+                str = str + String.valueOf(j);
+            }
+            
+            char[] ch = str.toCharArray();
+            
+            for(int k = 0; k<10;k++){
+                for(int l = 0; l<ch.length; l++){
+                    int c = ch[l];
+                   
+                    if(k == c-48){
+                        ++counter;
+                    }
+                }
+                storenumber[i][k] = counter;
+                counter = 0;
+            }
+            
+            for(int j =0;j<10;j++){
+                System.out.print(storenumber[i][j]);
+                if(j == 9){
+                    break;
+                }
+                System.out.print(" ");
+            }
+            System.out.println();
+            
+        }
+        
+     
+    }
+}
